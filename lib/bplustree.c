@@ -8,9 +8,14 @@
 #include <string.h>
 #include <fcntl.h>
 #include <ctype.h>
-#include <unistd.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#ifndef _MSC_VER
+#include <unistd.h>
+#else
+#include <io.h>
+typedef ptrdiff_t ssize_t;
+#endif
 
 #include "bplustree.h"
 
